@@ -1,0 +1,11 @@
+services:
+  mbd_core_env:
+    build:
+      context: ./
+    image: mbd_core_env:latest
+    container_name: mbd_core_env_container
+    restart: always
+    stdin_open: true
+    tty: true
+    volumes:
+      - ../:/workspace

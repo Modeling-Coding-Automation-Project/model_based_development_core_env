@@ -1,0 +1,14 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# build directory
+build/
+cache/
+tests/**/CMakeLists.txt
+*.so
+*.dylib
+*.dll
+*.lib

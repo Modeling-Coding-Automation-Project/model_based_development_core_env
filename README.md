@@ -112,6 +112,29 @@ docker compose up -d
 docker compose exec mbd_core_env_container bash
 ```
 
+### 補足（VS Code 設定）
+
+#### 1) `.vscode/c_cpp_properties.json` で Python 3.14 を使う場合
+
+`.vscode/c_cpp_properties.json` の `includePath` にある Python 3.14 用の2行はコメントアウトされています。  
+Python 3.14 側で IntelliSense を合わせる場合は、以下の 3.14 用2行をコメント解除してください（必要に応じて 3.12 用2行はコメントアウト）。
+
+```jsonc
+// "/usr/include/python3.14",
+// "/opt/venv_python/lib/python3.14/site-packages/pybind11/include"
+```
+
+#### 2) WSL Ubuntu を使わず、`wslc` でコンテナを起動したい場合
+
+VS Code の `settings.json`（ユーザー設定）で Docker コマンド設定を `wslc` に設定します。
+
+```jsonc
+// "dev.containers.dockerPath": "docker",
+"dev.containers.dockerPath": "wslc",
+```
+
+設定変更後、コマンドパレットから **Reopen in Container** をクリックしてコンテナを再オープンしてください。
+
 コンテナには以下が含まれます：
 
 - Ubuntu 24.04 / 26.04

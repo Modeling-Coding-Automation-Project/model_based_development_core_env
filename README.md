@@ -114,14 +114,13 @@ docker compose exec mbd_core_env_container bash
 
 ### 補足（VS Code 設定）
 
-#### 1) `.vscode/c_cpp_properties.json` で Python 3.14 を使う場合
+#### 1) `.vscode/c_cpp_properties.json` の IntelliSense 設定
 
-`.vscode/c_cpp_properties.json` の `includePath` にある Python 3.14 用の2行はコメントアウトされています。  
-Python 3.14 側で IntelliSense を合わせる場合は、以下の 3.14 用2行をコメント解除してください（必要に応じて 3.12 用2行はコメントアウト）。
+`.vscode/c_cpp_properties.json` の `includePath` は、Ubuntu 26.04 の Python 3.14 に合わせています。
 
 ```jsonc
-// "/usr/include/python3.14",
-// "/opt/venv_python/lib/python3.14/site-packages/pybind11/include"
+"/usr/include/python3.14",
+"/opt/venv_python/lib/python3.14/site-packages/pybind11/include"
 ```
 
 #### 2) WSL Ubuntu を使わず、`wslc` でコンテナを起動したい場合
@@ -137,16 +136,16 @@ VS Code の `settings.json`（ユーザー設定）で Docker コマンド設定
 
 コンテナには以下が含まれます：
 
-- Ubuntu 24.04 / 26.04
-- Python 3.12 / 3.14（Ubuntu バージョンに依存）
+- Ubuntu 26.04
+- Python 3.14
 - CMake、GCC、GDB、clang-format
 - pybind11
 - NumPy、SciPy、matplotlib、pytest、pandas、SymPy 等の科学技術計算ライブラリ
 
 ## 必要環境（ローカル）
 
-- Ubuntu 24.04 以降
-- Python 3.12 以降
+- Ubuntu 26.04
+- Python 3.14
 - CMake 3.14 以降
 - pybind11
 - GCC（C++11 対応）

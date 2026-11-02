@@ -15,9 +15,7 @@ if [ "$ID" != "ubuntu" ]; then
     exit 1
 fi
 
-if [ "$VERSION_ID" == "24.04" ]; then
-    PYTHON_PKG="python3.12"
-elif [ "$VERSION_ID" == "26.04" ]; then
+if [ "$VERSION_ID" == "26.04" ]; then
     PYTHON_PKG="python3.14"
 else
     echo "Error: Unsupported Ubuntu version. (Version: $VERSION_ID)"
@@ -83,6 +81,6 @@ $PYTHON_PKG -m venv /opt/venv_python
     requests \
     flask \
     kaleido \
-    autopep8 
+    autopep8
 
 rm -rf /var/lib/apt/lists/*
